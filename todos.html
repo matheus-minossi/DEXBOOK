@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos os Livros | InDEXsBook</title>
+  <link rel="icon" href="header/Logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="todos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="container">
+      <button id="toggleMenu" aria-label="Abrir menu de categorias" aria-expanded="false" aria-controls="listaMenu">
+        <span class="cabecalho__menu-hamburguer"></span>
+      </button>
+      <nav id="listaMenu" class="lista-menu" aria-label="Menu de categorias">
+        <h2 class="lista-menu__titulo">Categorias</h2>
+        <ul class="lista-menu__lista">
+          <li class="lista-menu__item"><a href="#" class="lista-menu__link">Romance</a></li>
+          <li class="lista-menu__item"><a href="#" class="lista-menu__link">Quadrinhos</a></li>
+          <li class="lista-menu__item"><a href="#" class="lista-menu__link">Best-Sellers</a></li>
+          <li class="lista-menu__item"><a href="#" class="lista-menu__link">Mangás</a></li>
+          <li class="lista-menu__item"><a href="todos.html" class="lista-menu__link">Todos</a></li>
+        </ul>
+      </nav>
+      <img src="header/Logo.svg" href="index.html" alt="Logo da InDEXsBook" class="cabecalho__logo">
+    </div>
+    <div class="cabecalho__icones">
+      <a href="favoritos.html" aria-label="Favoritos"><img src="header/Favoritos.svg" alt="Ícone de favoritos" class="container__imagem"></a>
+      <a href="#" aria-label="Carrinho"><img src="header/Compras.svg" alt="Ícone de carrinho" class="container__imagem"></a>
+      <a href="login.html" aria-label="Perfil"><img src="header/Usuario.svg" alt="Ícone de perfil" class="container__imagem"></a>
+    </div>
+  </header>
+  <div class="livro-acoes">
+    <button class="livro-favorito" data-id="guerra-civil" aria-label="Adicionar aos favoritos">
+      <img src="header/Favoritos.svg" alt="Favoritar">
+    </button>
+    <button class="livro-botao">Adicionar ao Carrinho</button>
+  </div>
+  <main class="todos-container">
+    <h1 class="todos-titulo">Todos os Livros</h1>
+    
+    <div class="filtros">
+      <select class="filtro" aria-label="Filtrar por categoria">
+        <option value="todos">Todas Categorias</option>
+        <option value="romance">Romance</option>
+        <option value="quadrinhos">Quadrinhos</option>
+        <option value="bestsellers">Best-Sellers</option>
+        <option value="mangas">Mangás</option>
+      </select>
+      
+      <select class="filtro" aria-label="Ordenar por">
+        <option value="recentes">Mais Recentes</option>
+        <option value="antigos">Mais Antigos</option>
+        <option value="preco">Preço</option>
+        <option value="popularidade">Popularidade</option>
+      </select>
+    </div>
+    <div class="livros-grid">
+      <!-- Livro 1 -->
+      <div class="livro-card" data-id="guerra-civil">
+        <img src="imgbooks/Guerra civil.jpg" alt="Livro Guerra Civil" class="livro-imagem">
+        <div class="livro-info">
+          <h3 class="livro-titulo">Guerra Civil</h3>
+          <p class="livro-autor">Autor: Mark Millar</p>
+          <p class="livro-preco">R$ 59,90</p>
+          <div class="livro-acoes">
+            <button class="livro-favorito" data-id="guerra-civil" aria-label="Adicionar aos favoritos">
+              <img src="header/Favoritos.svg" alt="Favoritar">
+            </button>
+            <button class="livro-botao">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Livro 2 -->
+      <div class="livro-card" data-id="harry-potter">
+        <img src="imgbooks/harry.jpg" alt="Livro Harry Potter" class="livro-imagem">
+        <div class="livro-info">
+          <h3 class="livro-titulo">Harry Potter</h3>
+          <p class="livro-autor">Autor: J.K. Rowling</p>
+          <p class="livro-preco">R$ 49,90</p>
+          <div class="livro-acoes">
+            <button class="livro-favorito" data-id="harry-potter" aria-label="Adicionar aos favoritos">
+              <img src="header/Favoritos.svg" alt="Favoritar">
+            </button>
+            <button class="livro-botao">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Adicione os outros livros seguindo o mesmo padrão -->
+    </div>
+    </div>
+    
+    <div class="paginacao">
+      <button class="paginacao-botao" id="pagina-anterior">Anterior</button>
+      <span class="paginacao-pagina">1 de 5</span>
+      <button class="paginacao-botao" id="proxima-pagina">Próxima</button>
+    </div>
+  
+    <footer class="rodape">
+    <p>&copy; 2025 InDEXsBook. Todos os direitos reservados.</p>
+    <nav>
+      <a href="#">Sobre</a> |
+      <a href="#">Contato</a> |
+      <a href="#">Política de Privacidade</a>
+    </nav>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="todos.js"></script>
+</body>
+</html>

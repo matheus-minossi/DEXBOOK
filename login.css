@@ -1,0 +1,307 @@
+:root {
+
+    --cor-branca: rgba(255, 255, 255, 0.9);
+
+    --cor-texto: #ffffff;
+
+    --cor-destaque: rgba(255, 255, 255, 0.7);
+
+    --cor-borda: rgba(255, 255, 255, 0.3);
+
+    --sombra: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+    --fonte-principal: "Poppins", sans-serif;
+
+}
+
+
+
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family: var(--fonte-principal);
+
+    /* Cor de fallback caso a imagem não carregue */
+
+    background-color: #1a1a2e;
+
+}
+
+
+
+.login-background {
+
+    background-image: url('imgbooks/bestseller.png');
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+}
+
+
+
+.login-container {
+
+    background: rgba(0, 0, 0, 0.5); 
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: 15px;
+
+    border: 1px solid var(--cor-borda);
+
+    box-shadow: var(--sombra);
+
+    width: 100%;
+
+    max-width: 400px;
+
+    padding: 2.5rem;
+
+    color: var(--cor-texto);
+
+}
+
+
+
+.login-header h1 {
+
+    margin: 0 0 1.5rem 0;
+
+    font-size: 2rem;
+
+    font-weight: 500;
+
+    text-align: center;
+
+    color: var(--cor-texto);
+
+}
+
+
+
+.input-group {
+
+    margin-bottom: 1.5rem;
+
+}
+
+
+
+.input-group input {
+
+    width: 100%;
+
+    padding: 12px 15px;
+
+  background: rgba(0, 0, 0, 0.3);
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 8px;
+
+    font-size: 1rem;
+
+    color: var(--cor-texto);
+
+    transition: all 0.3s;
+
+}
+
+
+
+.input-group input::placeholder {
+
+    color: var(--cor-destaque);
+
+    opacity: 1;
+
+}
+
+
+
+.input-group input:focus {
+
+    outline: none;
+
+    border-color: var(--cor-texto);
+
+    background: rgba(255, 255, 255, 0.2);
+
+}
+
+
+
+.login-options {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 1.5rem;
+
+    font-size: 0.9rem;
+
+    color: var(--cor-destaque);
+
+}
+
+
+
+.remember-me {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+
+.remember-me input {
+
+    margin-right: 0.5rem;
+
+    accent-color: var(--cor-texto);
+
+}
+
+
+
+.forgot-password {
+
+    color: var(--cor-destaque);
+
+    text-decoration: none;
+
+    transition: color 0.3s;
+
+}
+
+
+
+.forgot-password:hover {
+
+    color: var(--cor-texto);
+
+    text-decoration: underline;
+
+}
+
+
+
+.login-button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+
+    border-radius: 8px;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: all 0.3s;
+
+}
+
+
+
+.login-button:hover {
+
+    background: rgba(255, 255, 255, 0.3);
+
+    transform: translateY(-2px);
+
+}
+
+
+
+.register-link {
+
+    text-align: center;
+
+    margin-top: 1.5rem;
+
+    font-size: 0.9rem;
+
+    color: var(--cor-destaque);
+
+}
+
+
+
+.register-link a {
+
+    color: var(--cor-texto);
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    transition: all 0.3s;
+
+}
+
+
+
+.register-link a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+
+/* Classe para elementos visualmente ocultos mas acessíveis */
+
+.sr-only {
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 1px;
+
+    padding: 0;
+
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border-width: 0;
+
+}

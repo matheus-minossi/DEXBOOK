@@ -1,0 +1,117 @@
+
+.banner {
+  position: relative;
+  color: var(--cor-branca);
+  text-align: center;
+  padding: 12em 2em 8em; /* Aumentei o padding superior */
+  overflow: hidden;
+  isolation: isolate;
+  background: rgba(0, 0, 0, 0.3); /* Fundo mais escuro para melhor contraste */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  margin-top: 0;
+  z-index: 1;
+}
+
+/* Imagem de fundo */
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;  z-index: -2;
+  filter: blur(8px) brightness(0.7);
+}
+
+/* Camada de glassmorphism sobre a imagem */
+.banner::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: var(--laranja);
+  margin: 3rem auto;
+  opacity: 0.8;
+}
+
+.banner__conteudo {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.banner__titulo {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  letter-spacing: -0.5px;
+}
+
+.banner__texto {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+}
+
+.banner__pesquisa {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--cor-branca);
+  border-radius: 50px;
+  padding: 1.2em 2em 1.2em 3.5em;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  outline: none;
+  background-image: url('../banner/lupa.svg');
+  background-repeat: no-repeat;
+  background-position: 1.5em center;
+  background-size: 1.2em;
+}
+
+.banner__pesquisa::placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.banner__pesquisa:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .banner {
+    padding: 8em 1.5em 5em;
+  }
+  
+  .banner__titulo {
+    font-size: 2.2rem;
+  }
+  
+  .banner__texto {
+    font-size: 1.2rem;
+  }
+  
+  .banner__pesquisa {
+    padding: 1em 1.5em 1em 3em;
+    font-size: 1rem;
+  }
+}

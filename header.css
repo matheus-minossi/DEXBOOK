@@ -1,0 +1,417 @@
+/* header.css - Versão Corrigida */
+
+:root {
+  --cor-branca: #ffffff;
+  --laranja: #ff6b35;
+  --azul-escuro: #002f52;
+  --azul-medio: #326589;
+}
+
+/* Header fixo no topo */
+.cabecalho {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Poppins', sans-serif;
+  z-index: 1000;
+  background-color: transparent;
+  transition: all 0.4s ease;
+}
+
+/* Header ativo após scroll */
+.cabecalho.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 2rem;
+}
+
+/* Container para alinhar itens */
+.cabecalho .container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+/* Logo */
+.cabecalho__logo {
+  height: 48px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cabecalho__logo:hover {
+  transform: scale(1.05);
+}
+
+/* Botão hamburguer (mobile) */
+#toggleMenu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  z-index: 1101;
+  transition: transform 0.3s ease;
+}
+
+#toggleMenu:focus {
+  outline: 2px solid var(--laranja);
+  outline-offset: 2px;
+}
+
+.cabecalho__menu-hamburguer {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cabecalho__menu-hamburguer::before,
+.cabecalho__menu-hamburguer::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.cabecalho__menu-hamburguer::before {
+  top: -8px;
+}
+
+.cabecalho__menu-hamburguer::after {
+  top: 8px;
+}
+
+/* Menu lateral (mobile) */
+.lista-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  max-width: 85vw;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.15);
+  padding: 5rem 1.5rem 2rem;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  overflow-y: auto;
+  z-index: 1100;
+}
+
+.lista-menu[aria-hidden="false"] {
+  transform: translateX(0);
+}
+
+.lista-menu__titulo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--azul-escuro);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--laranja);
+}
+
+.lista-menu__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-menu__item {
+  margin-bottom: 1rem;
+}
+
+.lista-menu__link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.lista-menu__link:hover,
+.lista-menu__link:focus {
+  color: var(--laranja);
+  transform: translateX(5px);
+}
+
+/* Ícones no header */
+.cabecalho__icones {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.cabecalho__icones a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cabecalho__icones a:hover {
+  background-color: var(--laranja);
+  transform: translateY(-2px);
+}
+
+.cabecalho__icones img {
+  width: 22px;
+  height: 22px;
+  transition: filter 0.3s ease;
+}
+
+.cabecalho__icones a:hover img {
+  filter: invert(1);
+}
+
+/* Contador de itens no carrinho/favoritos */
+.cabecalho__icones a::after {
+  content: attr(data-count);
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--laranja);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.cabecalho__icones a[data-count]:not([data-count="0"])::after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* Melhorias para o ícone de favoritos no header */
+.cabecalho__icones a[aria-label="Favoritos"] {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.cabecalho__icones a[aria-label="Favoritos"]:hover {
+  transform: scale(1.1);
+}
+
+.cabecalho__icones a[aria-label="Favoritos"].icone-ativo::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: var(--laranja);
+  border-radius: 50%;
+}
+
+/* Estilo para quando há itens nos favoritos */
+.cabecalho__icones a[aria-label="Favoritos"][data-count]:not([data-count="0"]) {
+  position: relative;
+}
+
+.cabecalho__icones a[aria-label="Favoritos"][data-count]:not([data-count="0"])::after {
+  content: attr(data-count);
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--laranja);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Overlay quando o menu está aberto */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1099;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsividade - Desktop */
+@media (min-width: 769px) {
+  #toggleMenu {
+    display: none;
+  }
+  
+  .lista-menu {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    transform: none !important;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+  }
+  
+  .lista-menu__titulo {
+    display: none;
+  }
+  
+  .lista-menu__lista {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+  }
+  
+  .lista-menu__item {
+    margin-bottom: 0;
+  }
+  
+  .lista-menu__link {
+    color: #333;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  
+  .lista-menu__link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--laranja);
+    transition: width 0.3s ease;
+  }
+  
+  .lista-menu__link:hover::after,
+  .lista-menu__link:focus::after {
+    width: 100%;
+  }
+  
+  .cabecalho.scrolled .lista-menu__link {
+    color: #333;
+  }
+  
+  .menu-overlay {
+    display: none;
+  }
+}
+
+/* Responsividade - Mobile */
+@media (max-width: 768px) {
+  .cabecalho {
+    padding: 1rem;
+  }
+  
+  .cabecalho.scrolled {
+    padding: 0.7rem 1rem;
+  }
+  
+  .cabecalho__logo {
+    height: 40px;
+  }
+  
+  .cabecalho__icones {
+    gap: 0.8rem;
+  }
+  
+  .cabecalho__icones a {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .cabecalho__icones img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Animações para o menu hamburguer */
+#toggleMenu[aria-expanded="true"] .cabecalho__menu-hamburguer {
+  background-color: transparent;
+}
+
+#toggleMenu[aria-expanded="true"] .cabecalho__menu-hamburguer::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+#toggleMenu[aria-expanded="true"] .cabecalho__menu-hamburguer::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Ajuste para quando o header está com scroll */
+.cabecalho.scrolled .cabecalho__menu-hamburguer,
+.cabecalho.scrolled .cabecalho__menu-hamburguer::before,
+.cabecalho.scrolled .cabecalho__menu-hamburguer::after {
+  background-color: #333;
+}
+
+.cabecalho.scrolled .lista-menu__link {
+  color: #333;
+}
+
+/* Melhorias de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .cabecalho,
+  .lista-menu,
+  .cabecalho__icones a,
+  .lista-menu__link,
+  #toggleMenu,
+  .cabecalho__menu-hamburguer,
+  .cabecalho__menu-hamburguer::before,
+  .cabecalho__menu-hamburguer::after {
+    transition: none;
+  }
+}
+
+/* Foco visível para elementos interativos */
+#toggleMenu:focus-visible,
+.lista-menu__link:focus-visible,
+.cabecalho__icones a:focus-visible {
+  outline: 2px solid var(--laranja);
+  outline-offset: 2px;
+}

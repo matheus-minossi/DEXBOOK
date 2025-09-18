@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Favoritos | InDEXsBook</title>
+  <link rel="icon" href="header/Logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="favoritos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="container">
+      <button id="toggleMenu" aria-label="Abrir menu de categorias" aria-expanded="false" aria-controls="listaMenu">
+        <span class="cabecalho__menu-hamburguer"></span>
+      </button>
+      <nav id="listaMenu" class="lista-menu" aria-label="Menu de categorias" aria-hidden="true">
+        <h2 class="lista-menu__titulo">Categorias</h2>
+        <ul class="lista-menu__lista">
+          <li class="lista-menu__item"><a href="#" class="lista-menu__link">Romance</a></li>
+          <li class="lista-menu__item"><a href="#" class="lista-menu__link">Quadrinhos</a></li>
+          <li class="lista-menu__item"><a href="#" class="lista-menu__link">Best-Sellers</a></li>
+          <li class="lista-menu__item"><a href="#" class="lista-menu__link">Mangás</a></li>
+          <li class="lista-menu__item"><a href="todos.html" class="lista-menu__link">Todos</a></li>
+        </ul>
+      </nav>
+      <a href="index.html">
+        <img src="header/Logo.svg" alt="Logo da InDEXsBook" class="cabecalho__logo">
+      </a>
+    </div>
+    <div class="cabecalho__icones">
+      <a href="favoritos.html" aria-label="Favoritos" data-count="0" class="icone-ativo">
+        <img src="header/Favoritos.svg" alt="Ícone de favoritos">
+      </a>
+      <a href="#" aria-label="Carrinho" data-count="0">
+        <img src="header/Compras.svg" alt="Ícone de carrinho">
+      </a>
+      <a href="login.html" aria-label="Perfil">
+        <img src="header/Usuario.svg" alt="Ícone de perfil">
+      </a>
+    </div>
+    <div class="menu-overlay"></div>
+  </header>
+
+  <main class="favoritos-container">
+    <div class="favoritos-header">
+      <h1 class="favoritos-titulo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="favoritos-icone-titulo">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        Meus Favoritos
+      </h1>
+      <p class="favoritos-subtitulo">Livros que você marcou como favoritos</p>
+    </div>
+
+    <div class="favoritos-conteudo">
+      <div class="filtros-ordenacao">
+        <select class="filtro-ordenacao" id="ordenarFavoritos">
+          <option value="recentes">Mais Recentes</option>
+          <option value="antigos">Mais Antigos</option>
+          <option value="titulo">Ordenar por Título</option>
+          <option value="preco">Ordenar por Preço</option>
+        </select>
+        
+        <button class="btn-limpar" id="limparFavoritos">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+          Limpar Tudo
+        </button>
+      </div>
+
+      <div class="favoritos-grid" id="favoritosGrid">
+        <!-- Os favoritos serão carregados dinamicamente via JavaScript -->
+      </div>
+
+      <div class="favoritos-vazio" id="favoritosVazio">
+        <div class="vazio-conteudo">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="#ccc">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <h2>Nenhum favorito ainda</h2>
+          <p>Você ainda não adicionou nenhum livro aos favoritos.</p>
+          <a href="todos.html" class="btn-explorar">Explorar Livros</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-container">
+      <div class="newsletter">
+        <h2>InDEXsBook</h2>
+        <p>Cadastre-se para receber descontos exclusivos, novidades literárias e sorteios de livros.</p>
+        <form class="newsletter-form" aria-label="Formulário de inscrição na newsletter">
+          <input type="email" name="email" class="newsletter-input" placeholder="Seu melhor e-mail" required aria-required="true" aria-label="Digite seu e-mail">
+          <button type="submit" class="newsletter-button" aria-label="Inscrever-se na newsletter">Inscrever-se</button>
+        </form>
+      </div>
+
+      <div class="rodape-col">
+        <h3>NAVEGAÇÃO</h3>
+        <ul class="rodape-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="todos.html">Todos os Livros</a></li>
+          <li><a href="favoritos.html">Favoritos</a></li>
+          <li><a href="#">Categorias</a></li>
+          <li><a href="#">Mais Vendidos</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape-col">
+        <h3>SUPORTE</h3>
+        <ul class="rodape-links">
+          <li><a href="#">Ajuda</a></li>
+          <li><a href="#">Trocas e Devoluções</a></li>
+          <li><a href="#">Entregas</a></li>
+          <li><a href="#">Perguntas Frequentes</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape-base">
+        <p>&copy; 2025 InDEXsBook. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="favoritos.js"></script>
+</body>
+</html>
